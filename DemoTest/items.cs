@@ -63,5 +63,12 @@ namespace DemoTest
             adapter.Fill(table);
             datagrid.DataSource = table.DefaultView;
         }
+
+        private void exit_button_Click(object sender, EventArgs e)
+        {
+            Form1 main = new Form1();
+            main.Show();
+            this.Close();
+        }
     }
 }

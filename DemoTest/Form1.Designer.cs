@@ -34,6 +34,7 @@ namespace DemoTest
             this.PassBox = new System.Windows.Forms.TextBox();
             this.Login_submit = new System.Windows.Forms.Button();
             this.Reg_redirect = new System.Windows.Forms.Button();
+            this.exit_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // EmailBox
@@ -84,11 +85,22 @@ namespace DemoTest
             this.Reg_redirect.UseVisualStyleBackColor = true;
             this.Reg_redirect.Click += new System.EventHandler(this.Reg_redirect_Click);
             // 
+            // exit_button
+            // 
+            this.exit_button.Location = new System.Drawing.Point(713, 399);
+            this.exit_button.Name = "exit_button";
+            this.exit_button.Size = new System.Drawing.Size(75, 39);
+            this.exit_button.TabIndex = 5;
+            this.exit_button.Text = "exit";
+            this.exit_button.UseVisualStyleBackColor = true;
+            this.exit_button.Click += new System.EventHandler(this.exit_button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.exit_button);
             this.Controls.Add(this.Reg_redirect);
             this.Controls.Add(this.Login_submit);
             this.Controls.Add(this.PassBox);
@@ -109,6 +121,7 @@ namespace DemoTest
         private System.Windows.Forms.TextBox PassBox;
         private System.Windows.Forms.Button Login_submit;
         private System.Windows.Forms.Button Reg_redirect;
+        private System.Windows.Forms.Button exit_button;
     }
 }
 

@@ -33,6 +33,7 @@ namespace DemoTest
             this.seachBox = new System.Windows.Forms.TextBox();
             this.search_submit = new System.Windows.Forms.Button();
             this.reset_button = new System.Windows.Forms.Button();
+            this.exit_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.datagrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,7 +44,7 @@ namespace DemoTest
             this.datagrid.Name = "datagrid";
             this.datagrid.RowHeadersWidth = 62;
             this.datagrid.RowTemplate.Height = 28;
-            this.datagrid.Size = new System.Drawing.Size(954, 375);
+            this.datagrid.Size = new System.Drawing.Size(954, 335);
             this.datagrid.TabIndex = 0;
             this.datagrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_CellContentClick);
             // 
@@ -67,7 +68,7 @@ namespace DemoTest
             // 
             // reset_button
             // 
-            this.reset_button.Location = new System.Drawing.Point(835, 12);
+            this.reset_button.Location = new System.Drawing.Point(698, 399);
             this.reset_button.Name = "reset_button";
             this.reset_button.Size = new System.Drawing.Size(131, 45);
             this.reset_button.TabIndex = 3;
@@ -75,11 +76,22 @@ namespace DemoTest
             this.reset_button.UseVisualStyleBackColor = true;
             this.reset_button.Click += new System.EventHandler(this.reset_button_Click);
             // 
+            // exit_button
+            // 
+            this.exit_button.Location = new System.Drawing.Point(835, 399);
+            this.exit_button.Name = "exit_button";
+            this.exit_button.Size = new System.Drawing.Size(131, 45);
+            this.exit_button.TabIndex = 6;
+            this.exit_button.Text = "back";
+            this.exit_button.UseVisualStyleBackColor = true;
+            this.exit_button.Click += new System.EventHandler(this.exit_button_Click);
+            // 
             // items
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(978, 450);
+            this.Controls.Add(this.exit_button);
             this.Controls.Add(this.reset_button);
             this.Controls.Add(this.search_submit);
             this.Controls.Add(this.seachBox);
@@ -99,5 +111,6 @@ namespace DemoTest
         private System.Windows.Forms.TextBox seachBox;
         private System.Windows.Forms.Button search_submit;
         private System.Windows.Forms.Button reset_button;
+        private System.Windows.Forms.Button exit_button;
     }
 }

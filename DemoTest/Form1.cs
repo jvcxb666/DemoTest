@@ -66,5 +66,10 @@ namespace DemoTest
             this.Hide();
             register.Show();
         }
+
+        private void exit_button_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }
