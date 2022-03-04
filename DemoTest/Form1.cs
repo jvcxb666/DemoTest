@@ -49,14 +49,14 @@ namespace DemoTest
 
             if (result.Rows.Count > 0)
             {
-                MessageBox.Show("a");
+                MessageBox.Show("success");
                 items items = new items();
                 this.Hide();
                 items.Show();
             }
             else
             {
-                MessageBox.Show("b");
+                MessageBox.Show("error");
             }
         }
 

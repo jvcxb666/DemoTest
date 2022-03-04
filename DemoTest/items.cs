@@ -27,12 +27,13 @@ namespace DemoTest
         {
             dbInfo db = new dbInfo();
             MySqlConnection mysqli = db.mysqli;
-            MySqlCommand select = new MySqlCommand("SELECT * FROM `table` WHERE 1", mysqli);
+            MySqlCommand select = new MySqlCommand("SELECT * FROM `table`", mysqli);
             MySqlDataAdapter adapter = new MySqlDataAdapter();
             DataTable table = new DataTable();
             mysqli.Open();
             adapter.SelectCommand = select;
             adapter.Fill(table);
+            mysqli.Close();
             datagrid.DataSource = table.DefaultView;
         }
 
@@ -48,6 +49,7 @@ namespace DemoTest
             mysqli.Open();
             adapter.SelectCommand = select;
             adapter.Fill(table);
+            mysqli.Close();
             datagrid.DataSource = table.DefaultView;
         }
 
@@ -61,6 +63,7 @@ namespace DemoTest
             mysqli.Open();
             adapter.SelectCommand = select;
             adapter.Fill(table);
+            mysqli.Close();
             datagrid.DataSource = table.DefaultView;
         }
 
@@ -69,6 +72,49 @@ namespace DemoTest
             Form1 main = new Form1();
             main.Show();
             this.Close();
+        }
+
+        private void sort_submit_Click(object sender, EventArgs e)
+        {
+            dbInfo db = new dbInfo();
+            MySqlConnection mysqli = db.mysqli;
+            MySqlCommand select = new MySqlCommand("SELECT * FROM `table` ORDER BY `company` ", mysqli);
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            DataTable table = new DataTable();
+            mysqli.Open();
+            adapter.SelectCommand = select;
+            adapter.Fill(table);
+            mysqli.Close();
+            datagrid.DataSource = table.DefaultView;
+
+        }
+
+        private void order_job_Click(object sender, EventArgs e)
+        {
+            dbInfo db = new dbInfo();
+            MySqlConnection mysqli = db.mysqli;
+            MySqlCommand select = new MySqlCommand("SELECT * FROM `table` ORDER BY `jobname` ", mysqli);
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            DataTable table = new DataTable();
+            mysqli.Open();
+            adapter.SelectCommand = select;
+            adapter.Fill(table);
+            mysqli.Close();
+            datagrid.DataSource = table.DefaultView;
+        }
+
+        private void order_email_Click(object sender, EventArgs e)
+        {
+            dbInfo db = new dbInfo();
+            MySqlConnection mysqli = db.mysqli;
+            MySqlCommand select = new MySqlCommand("SELECT * FROM `table` ORDER BY `email` ", mysqli);
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            DataTable table = new DataTable();
+            mysqli.Open();
+            adapter.SelectCommand = select;
+            adapter.Fill(table);
+            mysqli.Close();
+            datagrid.DataSource = table.DefaultView;
         }
     }
 }
