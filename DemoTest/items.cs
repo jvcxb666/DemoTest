@@ -75,40 +75,13 @@ namespace DemoTest
             this.Close();
         }
 
-        private void sort_submit_Click(object sender, EventArgs e)
+        private void filter_click_Click(object sender, EventArgs e)
         {
+            string column = sort_column.Text;
+            string type = sort_type.Text;
             dbInfo db = new dbInfo();
             MySqlConnection mysqli = db.mysqli;
-            MySqlCommand select = new MySqlCommand("SELECT * FROM `table` ORDER BY `company` ", mysqli);
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-            DataTable table = new DataTable();
-            mysqli.Open();
-            adapter.SelectCommand = select;
-            adapter.Fill(table);
-            mysqli.Close();
-            datagrid.DataSource = table.DefaultView;
-
-        }
-
-        private void order_job_Click(object sender, EventArgs e)
-        {
-            dbInfo db = new dbInfo();
-            MySqlConnection mysqli = db.mysqli;
-            MySqlCommand select = new MySqlCommand("SELECT * FROM `table` ORDER BY `jobname` ", mysqli);
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-            DataTable table = new DataTable();
-            mysqli.Open();
-            adapter.SelectCommand = select;
-            adapter.Fill(table);
-            mysqli.Close();
-            datagrid.DataSource = table.DefaultView;
-        }
-
-        private void order_email_Click(object sender, EventArgs e)
-        {
-            dbInfo db = new dbInfo();
-            MySqlConnection mysqli = db.mysqli;
-            MySqlCommand select = new MySqlCommand("SELECT * FROM `table` ORDER BY `email` ", mysqli);
+            MySqlCommand select = new MySqlCommand("SELECT * FROM `table` WHERE 1 ORDER BY `" + column + "` " + type, mysqli);
             MySqlDataAdapter adapter = new MySqlDataAdapter();
             DataTable table = new DataTable();
             mysqli.Open();

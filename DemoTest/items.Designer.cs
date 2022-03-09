@@ -34,10 +34,9 @@ namespace DemoTest
             this.search_submit = new System.Windows.Forms.Button();
             this.reset_button = new System.Windows.Forms.Button();
             this.exit_button = new System.Windows.Forms.Button();
-            this.sort_submit = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.order_job = new System.Windows.Forms.Button();
-            this.order_email = new System.Windows.Forms.Button();
+            this.sort_type = new System.Windows.Forms.ComboBox();
+            this.sort_column = new System.Windows.Forms.ComboBox();
+            this.filter_click = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.datagrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,55 +89,47 @@ namespace DemoTest
             this.exit_button.UseVisualStyleBackColor = true;
             this.exit_button.Click += new System.EventHandler(this.exit_button_Click);
             // 
-            // sort_submit
+            // sort_type
             // 
-            this.sort_submit.Location = new System.Drawing.Point(188, 404);
-            this.sort_submit.Name = "sort_submit";
-            this.sort_submit.Size = new System.Drawing.Size(131, 45);
-            this.sort_submit.TabIndex = 9;
-            this.sort_submit.Text = "company";
-            this.sort_submit.UseVisualStyleBackColor = true;
-            this.sort_submit.Click += new System.EventHandler(this.sort_submit_Click);
+            this.sort_type.FormattingEnabled = true;
+            this.sort_type.Items.AddRange(new object[] {
+            "ASC",
+            "DESC"});
+            this.sort_type.Location = new System.Drawing.Point(253, 410);
+            this.sort_type.Name = "sort_type";
+            this.sort_type.Size = new System.Drawing.Size(235, 28);
+            this.sort_type.TabIndex = 7;
             // 
-            // label1
+            // sort_column
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label1.Location = new System.Drawing.Point(12, 405);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(170, 36);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "ORDER BY";
+            this.sort_column.FormattingEnabled = true;
+            this.sort_column.Items.AddRange(new object[] {
+            "company",
+            "jobname",
+            "email"});
+            this.sort_column.Location = new System.Drawing.Point(12, 410);
+            this.sort_column.Name = "sort_column";
+            this.sort_column.Size = new System.Drawing.Size(235, 28);
+            this.sort_column.TabIndex = 8;
             // 
-            // order_job
+            // filter_click
             // 
-            this.order_job.Location = new System.Drawing.Point(325, 404);
-            this.order_job.Name = "order_job";
-            this.order_job.Size = new System.Drawing.Size(131, 45);
-            this.order_job.TabIndex = 11;
-            this.order_job.Text = "jobname";
-            this.order_job.UseVisualStyleBackColor = true;
-            this.order_job.Click += new System.EventHandler(this.order_job_Click);
-            // 
-            // order_email
-            // 
-            this.order_email.Location = new System.Drawing.Point(462, 404);
-            this.order_email.Name = "order_email";
-            this.order_email.Size = new System.Drawing.Size(131, 45);
-            this.order_email.TabIndex = 12;
-            this.order_email.Text = "email";
-            this.order_email.UseVisualStyleBackColor = true;
-            this.order_email.Click += new System.EventHandler(this.order_email_Click);
+            this.filter_click.Location = new System.Drawing.Point(494, 410);
+            this.filter_click.Name = "filter_click";
+            this.filter_click.Size = new System.Drawing.Size(120, 34);
+            this.filter_click.TabIndex = 9;
+            this.filter_click.Text = "filter";
+            this.filter_click.UseVisualStyleBackColor = true;
+            this.filter_click.Click += new System.EventHandler(this.filter_click_Click);
             // 
             // items
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(978, 450);
-            this.Controls.Add(this.order_email);
-            this.Controls.Add(this.order_job);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.sort_submit);
+            this.Controls.Add(this.filter_click);
+            this.Controls.Add(this.sort_column);
+            this.Controls.Add(this.sort_type);
             this.Controls.Add(this.exit_button);
             this.Controls.Add(this.reset_button);
             this.Controls.Add(this.search_submit);
@@ -160,9 +151,8 @@ namespace DemoTest
         private System.Windows.Forms.Button search_submit;
         private System.Windows.Forms.Button reset_button;
         private System.Windows.Forms.Button exit_button;
-        private System.Windows.Forms.Button sort_submit;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button order_job;
-        private System.Windows.Forms.Button order_email;
+        private System.Windows.Forms.ComboBox sort_type;
+        private System.Windows.Forms.ComboBox sort_column;
+        private System.Windows.Forms.Button filter_click;
     }
 }
