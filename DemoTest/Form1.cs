@@ -49,7 +49,15 @@ namespace DemoTest
 
             if (result.Rows.Count > 0)
             {
-                MessageBox.Show("success");
+                DataTable name = new DataTable();
+                MySqlDataAdapter adapter = new MySqlDataAdapter();
+                MySqlCommand select_name = new MySqlCommand("SELECT `name` FROM `users` WHERE `email` = @e",mysqli);
+                select_name.Parameters.Add("@e", MySqlDbType.VarChar).Value = email;
+                mysqli.Open();
+                adapter.SelectCommand = select_name;
+                adapter.Fill(name);
+                mysqli.Close();
+                MessageBox.Show("Welcome, " + name.Rows[0][0]);
                 items items = new items();
                 this.Hide();
                 items.Show();
