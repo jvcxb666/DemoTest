@@ -10,5 +10,9 @@ namespace DemoTest
     class dbInfo
     {
         public MySqlConnection mysqli = new MySqlConnection("server = localhost; user = root; database = demopr; password = ; SSL mode = None");
+        public MySqlConnection getConnection()
+        {
+            return mysqli;
+        }
     }
 }

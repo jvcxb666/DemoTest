@@ -62,7 +62,7 @@ namespace DemoTest
             }
             else
             {
-                MessageBox.Show("Error");
+                MessageBox.Show("Email is already taken");
             }
 
         }
