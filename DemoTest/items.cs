@@ -90,5 +90,61 @@ namespace DemoTest
             mysqli.Close();
             datagrid.DataSource = table.DefaultView;
         }
+
+        private void seachBox_TextChanged(object sender, EventArgs e)
+        {
+            dbInfo db = new dbInfo();
+            MySqlConnection mysqli = db.mysqli;
+            string search_param = seachBox.Text;
+            MySqlCommand select = new MySqlCommand("SELECT * FROM `table` WHERE `company` LIKE @p", mysqli);
+            select.Parameters.Add("@p", MySqlDbType.VarChar).Value = "%" + search_param + "%";
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            DataTable table = new DataTable();
+            mysqli.Open();
+            adapter.SelectCommand = select;
+            adapter.Fill(table);
+            mysqli.Close();
+            datagrid.DataSource = table.DefaultView;
+        }
+
+        private void sort_column_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string column = sort_column.Text;
+            string type = sort_type.Text;
+            if(type == null)
+            {
+                type = "ASC";
+            }
+            dbInfo db = new dbInfo();
+            MySqlConnection mysqli = db.mysqli;
+            MySqlCommand select = new MySqlCommand("SELECT * FROM `table` WHERE 1 ORDER BY `" + column + "` " + type, mysqli);
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            DataTable table = new DataTable();
+            mysqli.Open();
+            adapter.SelectCommand = select;
+            adapter.Fill(table);
+            mysqli.Close();
+            datagrid.DataSource = table.DefaultView;
+        }
+
+        private void sort_type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string column = sort_column.Text;
+            if(column == null)
+            {
+                column = "company";
+            }
+            string type = sort_type.Text;
+            dbInfo db = new dbInfo();
+            MySqlConnection mysqli = db.mysqli;
+            MySqlCommand select = new MySqlCommand("SELECT * FROM `table` WHERE 1 ORDER BY `" + column + "` " + type, mysqli);
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            DataTable table = new DataTable();
+            mysqli.Open();
+            adapter.SelectCommand = select;
+            adapter.Fill(table);
+            mysqli.Close();
+            datagrid.DataSource = table.DefaultView;
+        }
     }
 }

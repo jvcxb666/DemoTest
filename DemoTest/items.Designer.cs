@@ -58,6 +58,7 @@ namespace DemoTest
             this.seachBox.Size = new System.Drawing.Size(300, 26);
             this.seachBox.TabIndex = 1;
             this.seachBox.Text = "search by company";
+            this.seachBox.TextChanged += new System.EventHandler(this.seachBox_TextChanged);
             // 
             // search_submit
             // 
@@ -99,6 +100,7 @@ namespace DemoTest
             this.sort_type.Name = "sort_type";
             this.sort_type.Size = new System.Drawing.Size(235, 28);
             this.sort_type.TabIndex = 7;
+            this.sort_type.SelectedIndexChanged += new System.EventHandler(this.sort_type_SelectedIndexChanged);
             // 
             // sort_column
             // 
@@ -111,6 +113,7 @@ namespace DemoTest
             this.sort_column.Name = "sort_column";
             this.sort_column.Size = new System.Drawing.Size(235, 28);
             this.sort_column.TabIndex = 8;
+            this.sort_column.SelectedIndexChanged += new System.EventHandler(this.sort_column_SelectedIndexChanged);
             // 
             // filter_click
             // 
