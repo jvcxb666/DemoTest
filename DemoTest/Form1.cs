@@ -77,7 +77,15 @@ namespace DemoTest
 
         private void exit_button_Click(object sender, EventArgs e)
         {
-            Environment.Exit(0);
+            DialogResult exit_submit = MessageBox.Show("exit","exit",MessageBoxButtons.YesNo);
+            if(exit_submit == DialogResult.Yes)
+            {
+                Environment.Exit(0);
+            }
+            else
+            {
+
+            }
         }
     }
 }
